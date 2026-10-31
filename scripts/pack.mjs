@@ -22,7 +22,6 @@ const files = [
   'ROADMAP.md',
   'README.md',
   'README-zh.md',
-  'README.en.md',
   'README-es.md',
   'README-pt.md',
   'README-hi.md',

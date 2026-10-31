@@ -1,84 +1,62 @@
-# dsh-worth-check · 开工前价值判断
+# dsh-worth-check · Worth Check
 
-DeepSeek 插件：在**新对话开头**先判断任务体量，**只在「大项目」时**问一句「值不值得做」，避免用户冲动开一个大活儿、半路骑虎难下。
+A DeepSeek plugin that judges task size at the **start of a new conversation** and asks "is this worth doing?" only for large projects — preventing impulsive kick-offs you can't cleanly abandon.
 
-[English](README.en.md)
+[中文](README-zh.md)
 
-## 它做什么
+## What it does
 
-装上之后，**每个新对话**（工作区从 0 开始），模型在处理第一条任务前先扫一眼：
+At the start of every new conversation, before the first task, the model quickly sizes it up:
 
-- **一开头是「读交接文件 / 继续之前的项目」** → 直接开始，不问（项目此前已确认）。
-- **小事**（闲聊、查资料、解释概念、改个错别字）→ 直接做，不打扰。
-- **大项目** → 先问一句「这件事值得现在做吗？」，用户答完再开工。
+- **Starts by reading a handoff doc / continuing a previous project** → proceed, don't ask (already confirmed).
+- **Small tasks** (chit-chat, lookups, explanations, typos) → just do it, no interruption.
+- **Large projects** → ask "is this worth doing now?" first, then proceed after your answer.
 
-只在**新对话的第一条任务**判断一次；同一对话后续推进、追问、修改，一律不再重复问。
+Judged once on the first task only; never re-asked later in the same conversation.
 
-「大项目」的判断信号（满足任一即可，可配置）：
+Large-project signals (any one suffices, configurable):
 
-1. 需要写交接文档（换人 / 换会话还能继续）
-2. 需要压缩很多次上下文才能完成
-3. 涉及多个文件或很多步骤
-4. 请求带「项目 / 系统 / 完整做一套 / 从头做」等意图
+1. Needs a handoff document
+2. Needs many context compactions
+3. Spans many files or steps
+4. Implies "project / system / build from scratch"
 
-只提醒、不拦截：问完一句，用户怎么答就怎么继续。
+Reminder-only, never blocking.
 
-## 和同类插件的区别
+## Config
 
-| | dsh-worth-check | grill-first / ask-first 等 |
+The plugin ships as two components you can toggle independently on the plugin's detail page under "Included components":
+
+| Component | Default | Purpose |
 |---|---|---|
-| 判断维度 | **值不值得做**（价值） | 需求够不够明确（明确性） |
-| 触发 | 只在「新对话开头 + 大项目」问 | 模糊需求一律追问 |
-| 成本 | 零额外工具、零额外 token | 需额外工具/模型调用 |
+| Worth check | on | Sizes the task, asks only for large projects, skips handoff reads |
+| Fake-need check | off | Extra "fake need / wasted effort" check, off by default to save tokens |
 
-## 配置项
+The main component also has two optional parameters (set in `cordis.yml`, not the GUI):
 
-插件拆成两个组件，可在插件详情页的「包含的组件」里**单独开关**：
-
-| 组件 | 默认 | 作用 |
+| Key | Default | Meaning |
 |---|---|---|
-| 开工前价值判断 | 开 | 判断大小、只在大项目问、读交接不问 |
-| 伪需求 / 无用功判断 | 关 | 额外判断「伪需求 / 无用功」，默认关以省 token |
+| `askOnLargeOnly` | true | Ask only for large projects |
+| `largeSignals` | 4 defaults | Large-project signals, editable |
 
-主组件还有两个可选参数（在 `cordis.yml` 里配，不在 GUI）：
+## Install
 
-| 项 | 默认 | 说明 |
-|---|---|---|
-| `askOnLargeOnly` | true | 只在「大项目」问；改成 `false` 则第一条任务无论大小都问 |
-| `largeSignals` | 见上 4 条 | 「大项目」判断信号，可自行增删 |
+> Not yet published to npm — use the options below for now.
 
-## 安装
+**Option 1: local `.tgz` (works today)**
 
-> 尚未发布到 npm，请先用下面的方式安装。
-
-**方式一：本地 `.tgz`（当前可用）**
-
-1. 从 [GitHub Releases](https://github.com/planetpai/dsh-worth-check/releases) 下载 `dsh-worth-check-*.tgz`，或本地打包：
+1. Download `dsh-worth-check-*.tgz` from [GitHub Releases](https://github.com/planetpai/dsh-worth-check/releases), or build it locally:
    ```bash
-   node scripts/pack.mjs   # 生成 dsh-worth-check-<version>.tgz
+   node scripts/pack.mjs   # produces dsh-worth-check-<version>.tgz
    ```
-2. GUI：**插件 → 添加插件** → 选择该 `.tgz` 文件。
+2. GUI: **Plugins → Add plugin** → choose the `.tgz` file.
 
-**方式二：npm（发布后可用）**
-
-```bash
-dsh plugin --profile <你的 profile> add dsh-worth-check
-```
-
-## 开发
+**Option 2: npm (once published)**
 
 ```bash
-node --test
-node scripts/pack.mjs   # 打成 <name>-<version>.tgz
+dsh plugin --profile <your-profile> add dsh-worth-check
 ```
 
-## 待办（暂不实现）
-
-详细设计见 [ROADMAP.md](ROADMAP.md)。简版：
-
-- **多语言指令**：暂做中文，将来加 `lang` 配置项切换 zh/en（详见 ROADMAP §1）。
-- **记忆**：记住用户说过「这类事别问」，但与「零工具、轻量」定位冲突，暂缓（详见 ROADMAP §2）。
-
-## 许可
+## License
 
 MIT
