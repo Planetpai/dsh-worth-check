@@ -22,6 +22,24 @@ El plugin se divide en dos componentes que puedes activar o desactivar en la pá
 | Comprobación de valor | activado | Evalúa el tamaño, pregunta solo en proyectos grandes |
 | Comprobación de «necesidad falsa» | desactivado | Comprobación extra de «necesidad falsa», desactivada por defecto |
 
+## Instalación
+
+> Aún no publicado en npm — usa las opciones de abajo por ahora.
+
+**Opción 1: `.tgz` local (funciona hoy)**
+
+1. Descarga `dsh-worth-check-*.tgz` de [GitHub Releases](https://github.com/planetpai/dsh-worth-check/releases), o empaquétalo localmente:
+   ```bash
+   node scripts/pack.mjs   # genera dsh-worth-check-<version>.tgz
+   ```
+2. GUI: **Plugins → Añadir plugin** → elige el archivo `.tgz`.
+
+**Opción 2: npm (una vez publicado)**
+
+```bash
+dsh plugin --profile <tu-profile> add dsh-worth-check
+```
+
 ## Licencia
 
 MIT

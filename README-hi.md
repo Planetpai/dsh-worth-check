@@ -22,6 +22,24 @@
 | मूल्य-जाँच | चालू | आकार आँकता है, केवल बड़े प्रोजेक्ट पर पूछता है |
 | «झूठी ज़रूरत» जाँच | बंद | «झूठी ज़रूरत» की अतिरिक्त जाँच, डिफ़ॉल्ट रूप से बंद |
 
+## स्थापना
+
+> अभी npm पर प्रकाशित नहीं — फ़िलहाल नीचे दिए विकल्पों का उपयोग करें।
+
+**विकल्प 1: स्थानीय `.tgz` (आज ही काम करता है)**
+
+1. [GitHub Releases](https://github.com/planetpai/dsh-worth-check/releases) से `dsh-worth-check-*.tgz` डाउनलोड करें, या स्थानीय रूप से पैक करें:
+   ```bash
+   node scripts/pack.mjs   # dsh-worth-check-<version>.tgz बनाता है
+   ```
+2. GUI: **Plugins → Add plugin** → `.tgz` फ़ाइल चुनें।
+
+**विकल्प 2: npm (प्रकाशित होने के बाद)**
+
+```bash
+dsh plugin --profile <आपका-profile> add dsh-worth-check
+```
+
 ## लाइसेंस
 
 MIT
