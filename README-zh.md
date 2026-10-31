@@ -49,9 +49,17 @@ DeepSeek 插件：在**新对话开头**先判断任务体量，**只在「大�
 
 ## 安装
 
-GUI：**插件 → 添加插件**，填 `dsh-worth-check`，或选本地目录 / `.tgz` 文件。
+> 尚未发布到 npm，请先用下面的方式安装。
 
-命令行：
+**方式一：本地 `.tgz`（当前可用）**
+
+1. 从 [GitHub Releases](https://github.com/planetpai/dsh-worth-check/releases) 下载 `dsh-worth-check-*.tgz`，或本地打包：
+   ```bash
+   node scripts/pack.mjs   # 生成 dsh-worth-check-<version>.tgz
+   ```
+2. GUI：**插件 → 添加插件** → 选择该 `.tgz` 文件。
+
+**方式二：npm（发布后可用）**
 
 ```bash
 dsh plugin --profile <你的 profile> add dsh-worth-check

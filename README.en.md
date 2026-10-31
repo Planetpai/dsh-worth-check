@@ -41,7 +41,17 @@ The main component also has two optional parameters (set in `cordis.yml`, not th
 
 ## Install
 
-GUI: **Plugins → Add plugin**, enter `dsh-worth-check` (or a local directory / `.tgz`).
+> Not yet published to npm — use the options below for now.
+
+**Option 1: local `.tgz` (works today)**
+
+1. Download `dsh-worth-check-*.tgz` from [GitHub Releases](https://github.com/planetpai/dsh-worth-check/releases), or build it locally:
+   ```bash
+   node scripts/pack.mjs   # produces dsh-worth-check-<version>.tgz
+   ```
+2. GUI: **Plugins → Add plugin** → choose the `.tgz` file.
+
+**Option 2: npm (once published)**
 
 ```bash
 dsh plugin --profile <your-profile> add dsh-worth-check
