@@ -1,0 +1,68 @@
+{
+  "name": "dsh-worth-check",
+  "version": "0.2.0",
+  "description": "DeepSeek 插件：开工前先判断任务体量，只在「大项目」时问一句「值不值得做」，避免冲动开大活儿。",
+  "author": "planetpai",
+  "license": "MIT",
+  "keywords": [
+    "dsh-plugin",
+    "dsh",
+    "deepseek-harness",
+    "worth-check",
+    "value-judgment",
+    "开工前",
+    "价值判断"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/planetpai/dsh-worth-check.git"
+  },
+  "homepage": "https://github.com/planetpai/dsh-worth-check#readme",
+  "bugs": {
+    "url": "https://github.com/planetpai/dsh-worth-check/issues"
+  },
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./components/pseudo-need": "./components/pseudo-need/index.js",
+    "./components/pseudo-need/package.json": "./components/pseudo-need/package.json",
+    "./components/pseudo-need/locale/*.json": "./components/pseudo-need/locale/*.json",
+    "./components/pseudo-need/icon": "./components/pseudo-need/icon.svg",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "components/pseudo-need/index.js",
+    "components/pseudo-need/package.json",
+    "components/pseudo-need/locale/*.json",
+    "components/pseudo-need/icon.svg",
+    "LICENSE",
+    "ROADMAP.md"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "^3.18.2"
+  },
+  "devDependencies": {
+    "@deepseek-ai/schemastery": "^3.18.2"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "dsh": ">=0.2.1-rc.2 <0.3.0",
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "packageManager": "pnpm@11.7.0",
+  "license": "MIT"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "dsh-worth-check-pseudo-need",
+  "description": "额外判断「是否伪需求 / 无用功」。默认关闭以省 token，需要时在「包含的组件」里打开。",
+  "icon": "./icon.svg",
+  "type": "module"
+}

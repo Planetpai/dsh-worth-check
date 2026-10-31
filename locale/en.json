@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Worth Check",
+    "description": "At the start of a conversation, judge the task size and only ask \"is this worth doing\" for large projects."
+  }
+}

@@ -1,0 +1,8 @@
+# dsh-worth-check bundle layer：注册两个组件（row）。
+# 主组件「开工前价值判断」默认启用；「伪需求 / 无用功判断」默认关闭，可在 UI 里单独打开。
+- insert:
+    - id: dsh-worth-check
+      name: dsh-worth-check
+    - id: dsh-worth-check-pseudo-need
+      name: dsh-worth-check/components/pseudo-need
+      disabled: true

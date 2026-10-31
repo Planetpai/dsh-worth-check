@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Fake-need check",
+    "description": "Extra \"fake need / wasted effort\" check. Off by default to save tokens."
+  }
+}
